@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import MenuDetail from './MenuDetail';
+
 import logo from './images/logo.png';
 import icedCaffeAmericano from './images/iced-caffe-americano.jpg';
 import icedCaffeLatte from './images/iced-caffe-latte.jpg';
@@ -16,8 +18,11 @@ const Container = styled.div({
 });
 
 const Header = styled.header({
+  width: '80%',
+  position: 'fixed',
   display: 'flex',
   alignItems: 'center',
+  background: 'beige 100%',
 });
 
 const Logo = styled.div({
@@ -41,6 +46,7 @@ const CategoryContainer = styled.ul({
 });
 
 const Category = styled.li({
+  paddingTop: '100px',
   marginRight: '1em',
   textDecoration: 'none',
   fontSize: '2em',
@@ -82,10 +88,6 @@ const MenuName = styled.div({
   margin: '10px 0',
   fontSize: '16px',
   textAlign: 'center',
-});
-
-const MenuDetail = styled.div({
-  margin: '40px 0',
 });
 
 export default function App() {
@@ -196,25 +198,7 @@ export default function App() {
           <MenuName>에스프레소 콘 파나</MenuName>
         </Menu>
       </MenuContainer>
-      <MenuDetail>
-        <div style={{
-          margin: '100px auto 30px auto',
-          borderRadius: '50%',
-          width: '300px',
-          height: '300px',
-          background: `url(${icedCaffeAmericano}) center/100% no-repeat`,
-        }}
-        />
-        <h2>아이스 카페 아메리카노</h2>
-        <span>Iced Caffe Americano</span>
-        <hr />
-        <p>
-          진한 에스프레소에 시원한 정수물과 얼음을 더하여 깔끔하고
-          강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피
-        </p>
-        <h3>4,000원</h3>
-        <button type="button">주문하기</button>
-      </MenuDetail>
+      <MenuDetail />
     </Container>
   );
 }
