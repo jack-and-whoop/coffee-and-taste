@@ -17,19 +17,25 @@ const Container = styled.div({
 
 const Header = styled.header({
   display: 'flex',
+  alignItems: 'center',
 });
 
 const Logo = styled.div({
-  backgroundImage: `url(${logo})`,
+  marginRight: '10px',
+  width: '50px',
+  height: '50px',
+  borderRadius: '50%',
+  background: `url(${logo}) center/100% no-repeat`,
+  // margin: '50px auto 30px auto',
 });
 
 const Title = styled.h1({
-
+  margin: 0,
 });
 
 const CategoryContainer = styled.ul({
   display: 'flex',
-  margin: '20px 0',
+  margin: '40px 0',
   padding: '0',
   listStyle: 'none',
 });
@@ -37,6 +43,7 @@ const CategoryContainer = styled.ul({
 const Category = styled.li({
   marginRight: '1em',
   textDecoration: 'none',
+  fontSize: '2em',
 });
 
 const MenuGroupContainer = styled.ul({
@@ -49,6 +56,7 @@ const MenuGroupContainer = styled.ul({
 const MenuGroup = styled.li({
   marginRight: '1em',
   textDecoration: 'none',
+  fontSize: '1.5em',
 });
 
 const MenuContainer = styled.div({
