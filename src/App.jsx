@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import CategoryContainer from './CategoryContainer';
+import MenuGroupContainer from './MenuGroupContainer';
 import MenuContainer from './MenuContainer';
 import MenuDetail from './MenuDetail';
 
@@ -32,19 +33,6 @@ const Title = styled.h1({
   margin: 0,
 });
 
-const MenuGroupContainer = styled.ul({
-  display: 'flex',
-  margin: '40px 0',
-  padding: '0',
-  listStyle: 'none',
-});
-
-const MenuGroup = styled.li({
-  marginRight: '1em',
-  textDecoration: 'none',
-  fontSize: '1.5em',
-});
-
 export default function App() {
   return (
     <Container>
@@ -53,12 +41,7 @@ export default function App() {
         <Title>Coffee-and-Taste</Title>
       </Header>
       <CategoryContainer />
-      <MenuGroupContainer>
-        <MenuGroup>커피</MenuGroup>
-        <MenuGroup>디카페인</MenuGroup>
-        <MenuGroup>티바나</MenuGroup>
-        <MenuGroup>기타</MenuGroup>
-      </MenuGroupContainer>
+      <MenuGroupContainer />
       <MenuContainer />
       <MenuDetail />
     </Container>
