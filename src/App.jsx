@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+import { BrowserRouter } from 'react-router-dom';
 import CategoryContainer from './CategoryContainer';
 import MenuGroupContainer from './MenuGroupContainer';
 import MenuContainer from './MenuContainer';
@@ -35,15 +36,17 @@ const Title = styled.h1({
 
 export default function App() {
   return (
-    <Container>
-      <Header>
-        <Logo />
-        <Title>Coffee-and-Taste</Title>
-      </Header>
-      <CategoryContainer />
-      <MenuGroupContainer />
-      <MenuContainer />
-      <MenuDetail />
-    </Container>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Container>
+        <Header>
+          <Logo />
+          <Title>Coffee-and-Taste</Title>
+        </Header>
+        <CategoryContainer />
+        <MenuGroupContainer />
+        <MenuContainer />
+        <MenuDetail />
+      </Container>
+    </BrowserRouter>
   );
 }
