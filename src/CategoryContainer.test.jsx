@@ -6,6 +6,6 @@ describe('CategoryContainer', () => {
   it('renders category list ', () => {
     const { container } = render((<CategoryContainer />));
 
-    expect(container).toHaveTextContent('커피');
+    expect(container).toHaveTextContent('음료');
   });
 });
