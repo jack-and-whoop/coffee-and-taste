@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/jack-and-whoop/coffee-and-taste/static/js/main.2d1dba4a.js",
+    "static/js/787.2d279e3d.chunk.js": "/jack-and-whoop/coffee-and-taste/static/js/787.2d279e3d.chunk.js",
+    "index.html": "/jack-and-whoop/coffee-and-taste/index.html",
+    "main.2d1dba4a.js.map": "/jack-and-whoop/coffee-and-taste/static/js/main.2d1dba4a.js.map",
+    "787.2d279e3d.chunk.js.map": "/jack-and-whoop/coffee-and-taste/static/js/787.2d279e3d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.2d1dba4a.js"
+  ]
+}
