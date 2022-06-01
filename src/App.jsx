@@ -4,7 +4,7 @@ import Home from './Home';
 
 export default function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="/coffee-and-taste">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
