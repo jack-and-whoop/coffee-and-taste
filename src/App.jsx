@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+import CategoryContainer from './CategoryContainer';
 import MenuContainer from './MenuContainer';
 import MenuDetail from './MenuDetail';
 
@@ -31,20 +32,6 @@ const Title = styled.h1({
   margin: 0,
 });
 
-const CategoryContainer = styled.ul({
-  display: 'flex',
-  margin: '40px 0',
-  padding: '0',
-  listStyle: 'none',
-});
-
-const Category = styled.li({
-  paddingTop: '100px',
-  marginRight: '1em',
-  textDecoration: 'none',
-  fontSize: '2em',
-});
-
 const MenuGroupContainer = styled.ul({
   display: 'flex',
   margin: '40px 0',
@@ -65,11 +52,7 @@ export default function App() {
         <Logo />
         <Title>Coffee-and-Taste</Title>
       </Header>
-      <CategoryContainer>
-        <Category>음료</Category>
-        <Category>푸드</Category>
-        <Category>상품</Category>
-      </CategoryContainer>
+      <CategoryContainer />
       <MenuGroupContainer>
         <MenuGroup>커피</MenuGroup>
         <MenuGroup>디카페인</MenuGroup>
