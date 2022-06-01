@@ -6,7 +6,7 @@ export default function App() {
   return (
     <BrowserRouter basename="/coffee-and-taste">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
       </Routes>
 
     </BrowserRouter>
