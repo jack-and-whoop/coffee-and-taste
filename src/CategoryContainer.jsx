@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const CategoryContainerStyle = styled.ul({
   display: 'flex',
@@ -15,11 +17,22 @@ const Category = styled.li({
 });
 
 export default function CategoryContainer() {
+  const [categories, setCategories] = useState([]);
+
+  const BASE_URL = 'http://coffee-and-taste.kro.kr/api';
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/categories`)
+      .then((response) => setCategories(response.data));
+  });
+
   return (
     <CategoryContainerStyle>
-      <Category>음료</Category>
-      <Category>푸드</Category>
-      <Category>상품</Category>
+      {
+        categories.map((category) => (
+          <Category key={category.id}>{category.name}</Category>
+        ))
+      }
     </CategoryContainerStyle>
   );
 }
