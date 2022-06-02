@@ -1,7 +1,12 @@
+import { useEffect, useState } from 'react';
+
+import { Link } from 'react-router-dom';
+
 import styled from '@emotion/styled';
+import axios from 'axios';
 
 const MenuGroupContainerStyle = styled.ul({
-  display: 'flex',
+  // display: 'flex',
   margin: '40px 0',
   padding: '0',
   listStyle: 'none',
@@ -14,12 +19,26 @@ const MenuGroup = styled.li({
 });
 
 export default function MenuGroupContainer() {
+  const [menuGroups, setMenuGroups] = useState([]);
+
+  const BASE_URL = 'http://coffee-and-taste.kro.kr/api';
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/menu-groups`)
+      .then((response) => setMenuGroups(response.data));
+  }, []);
+
   return (
     <MenuGroupContainerStyle>
-      <MenuGroup>커피</MenuGroup>
-      <MenuGroup>디카페인</MenuGroup>
-      <MenuGroup>티바나</MenuGroup>
-      <MenuGroup>기타</MenuGroup>
+      {
+        menuGroups.map((menuGroup) => (
+          <MenuGroup key={menuGroup.id}>
+            <Link to={`/menu-groups/${menuGroup.id}/menus`}>
+              {menuGroup.name}
+            </Link>
+          </MenuGroup>
+        ))
+      }
     </MenuGroupContainerStyle>
   );
 }
