@@ -24,7 +24,7 @@ export default function CategoryContainer() {
   useEffect(() => {
     axios.get(`${BASE_URL}/categories`)
       .then((response) => setCategories(response.data));
-  });
+  }, []);
 
   return (
     <CategoryContainerStyle>
