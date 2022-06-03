@@ -55,7 +55,6 @@ export default function App() {
           </LogoAndTitle>
           <CategoryContainer />
         </Header>
-
         <ContentContainer>
           <Routes>
             <Route exact path="/" element={<Home />} />
