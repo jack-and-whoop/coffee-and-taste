@@ -14,7 +14,9 @@ const Container = styled.div({
 });
 
 const Header = styled.header({
+  top: '0',
   width: '80%',
+  height: '100px',
   position: 'fixed',
   display: 'flex',
   alignItems: 'center',

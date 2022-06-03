@@ -5,18 +5,35 @@ import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import axios from 'axios';
 
-const MenuGroupContainerStyle = styled.ul({
-  // display: 'flex',
+const MenuGroupContainerStyle = styled.div({
   margin: '40px 0',
-  padding: '0',
-  listStyle: 'none',
-  paddingTop: '200px',
+  paddingTop: '150px',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(4, 1fr)',
+  gridGap: '1rem',
 });
 
-const MenuGroup = styled.li({
-  marginRight: '1em',
-  textDecoration: 'none',
-  fontSize: '1.5em',
+const MenuGroup = styled.div({
+
+});
+
+const MenuGroupImage = styled.div(
+  {
+    margin: '50px auto 30px auto',
+    borderRadius: '50%',
+    width: '150px',
+    height: '150px',
+    border: '2px solid green',
+  },
+  (props) => ({
+    background: `url("${props.url}") center/100% no-repeat`,
+  }),
+);
+
+const MenuGroupName = styled.div({
+  margin: '10px 0',
+  fontSize: '16px',
+  textAlign: 'center',
 });
 
 export default function MenuGroupContainer() {
@@ -34,9 +51,12 @@ export default function MenuGroupContainer() {
       {
         menuGroups.map((menuGroup) => (
           <MenuGroup key={menuGroup.id}>
-            <Link to={`/menu-groups/${menuGroup.id}`}>
-              {menuGroup.name}
-            </Link>
+            <MenuGroupImage />
+            <MenuGroupName>
+              <Link to={`/menu-groups/${menuGroup.id}`}>
+                {menuGroup.name}
+              </Link>
+            </MenuGroupName>
           </MenuGroup>
         ))
       }
