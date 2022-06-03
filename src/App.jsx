@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 import Home from './Home';
-import MenuListPage from './MenuListPage';
 import CategoryContainer from './CategoryContainer';
+import MenuListContainer from './MenuListContainer';
 
 import logo from './images/logo.png';
 
@@ -58,7 +58,7 @@ export default function App() {
         <ContentContainer>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/menu-groups/:menuGroupId" element={<MenuListPage />} />
+            <Route path="/menu-groups/:menuGroupId" element={<MenuListContainer />} />
           </Routes>
         </ContentContainer>
       </Container>
