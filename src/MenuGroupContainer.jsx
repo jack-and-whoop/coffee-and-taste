@@ -33,7 +33,7 @@ export default function MenuGroupContainer() {
       {
         menuGroups.map((menuGroup) => (
           <MenuGroup key={menuGroup.id}>
-            <Link to={`/menu-groups/${menuGroup.id}/menus`}>
+            <Link to={`/menu-groups/${menuGroup.id}`}>
               {menuGroup.name}
             </Link>
           </MenuGroup>

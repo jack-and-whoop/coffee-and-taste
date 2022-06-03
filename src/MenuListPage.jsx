@@ -11,10 +11,10 @@ function MenuListContainer({ menuGroupId }) {
 }
 
 // eslint-disable-next-line react/prop-types
-export default function MenuListPage({ params }) {
-  const { id } = params || useParams();
+export default function MenuListPage() {
+  const { menuGroupId } = useParams();
 
   return (
-    <MenuListContainer menuGroupId={id} />
+    <MenuListContainer menuGroupId={menuGroupId} />
   );
 }
