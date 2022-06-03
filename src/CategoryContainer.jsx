@@ -19,7 +19,7 @@ const Category = styled.li({
 export default function CategoryContainer() {
   const [categories, setCategories] = useState([]);
 
-  const BASE_URL = 'http://coffee-and-taste.kro.kr/api';
+  const BASE_URL = 'https://coffee-and-taste.kro.kr/api';
 
   useEffect(() => {
     axios.get(`${BASE_URL}/categories`)

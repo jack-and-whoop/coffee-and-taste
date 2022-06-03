@@ -21,7 +21,7 @@ const MenuGroup = styled.li({
 export default function MenuGroupContainer() {
   const [menuGroups, setMenuGroups] = useState([]);
 
-  const BASE_URL = 'http://coffee-and-taste.kro.kr/api';
+  const BASE_URL = 'https://coffee-and-taste.kro.kr/api';
 
   useEffect(() => {
     axios.get(`${BASE_URL}/menu-groups`)
