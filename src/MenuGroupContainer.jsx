@@ -42,8 +42,10 @@ export default function MenuGroupContainer() {
   const BASE_URL = 'https://coffee-and-taste.kro.kr/api';
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/menu-groups`)
-      .then((response) => setMenuGroups(response.data));
+    axios.get(`${BASE_URL}/categories/1/menu-groups`)
+      .then((response) => {
+        setMenuGroups(response.data.menuGroups);
+      });
   }, []);
 
   return (
