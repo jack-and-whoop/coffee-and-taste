@@ -22,7 +22,7 @@ const MenuImage = styled.div(
     border: '2px solid orange',
   },
   (props) => ({
-    background: `url("${props.url}") center/100% no-repeat`,
+    background: `url("https://coffee-and-taste.kro.kr/${props.url}") center/100% no-repeat`,
   }),
 );
 
@@ -49,7 +49,7 @@ export default function MenuListContainer() {
     <MenuContainerStyle>
       {menuList.map((menu) => (
         <Menu key={menu.name}>
-          <MenuImage url={menu.imageURL} />
+          <MenuImage url={menu.imagePath} />
           <MenuName>{menu.name}</MenuName>
         </Menu>
       ))}
