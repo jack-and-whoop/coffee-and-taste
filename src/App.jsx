@@ -39,6 +39,12 @@ const Title = styled.h1({
   margin: '0',
 });
 
+const ContentContainer = styled.div({
+  marginTop: '180px',
+  backgroundColor: '#E4ECFE',
+  height: 'auto',
+});
+
 export default function App() {
   return (
     <BrowserRouter basename="/coffee-and-taste">
@@ -50,10 +56,13 @@ export default function App() {
           </LogoAndTitle>
           <CategoryContainer />
         </Header>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/menu-groups/:menuGroupId" element={<MenuListPage />} />
-        </Routes>
+
+        <ContentContainer>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/menu-groups/:menuGroupId" element={<MenuListPage />} />
+          </Routes>
+        </ContentContainer>
       </Container>
     </BrowserRouter>
   );

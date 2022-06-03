@@ -7,7 +7,6 @@ import axios from 'axios';
 
 const MenuGroupContainerStyle = styled.div({
   margin: '40px 0',
-  paddingTop: '150px',
   display: 'grid',
   gridTemplateColumns: 'repeat(4, 1fr)',
   gridGap: '1rem',
