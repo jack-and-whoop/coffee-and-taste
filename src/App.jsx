@@ -15,25 +15,28 @@ const Container = styled.div({
 
 const Header = styled.header({
   top: '0',
+  // margin: '0 auto',
   width: '80%',
   height: '100px',
   position: 'fixed',
-  display: 'flex',
-  alignItems: 'center',
   background: 'beige 100%',
 });
 
+const LogoAndTitle = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+});
+
 const Logo = styled.div({
-  marginRight: '10px',
+  margin: '0px 10px 0px 10px',
   width: '50px',
   height: '50px',
   borderRadius: '50%',
   background: `url(${logo}) center/100% no-repeat`,
-  // margin: '50px auto 30px auto',
 });
 
 const Title = styled.h1({
-  margin: 0,
+  margin: '0',
 });
 
 export default function App() {
@@ -41,10 +44,12 @@ export default function App() {
     <BrowserRouter basename="/coffee-and-taste">
       <Container>
         <Header>
-          <Logo />
-          <Title>Coffee-and-Taste</Title>
+          <LogoAndTitle>
+            <Logo />
+            <Title>Coffee-and-Taste</Title>
+          </LogoAndTitle>
+          <CategoryContainer />
         </Header>
-        <CategoryContainer />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/menu-groups/:menuGroupId" element={<MenuListPage />} />

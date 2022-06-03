@@ -2,18 +2,15 @@ import styled from '@emotion/styled';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const CategoryContainerStyle = styled.ul({
+const CategoryContainerStyle = styled.div({
   display: 'flex',
-  position: 'fixed',
-  margin: '40px 0',
-  padding: '0',
-  listStyle: 'none',
+  paddingTop: '10px',
+  background: 'beige 100%',
 });
 
-const Category = styled.li({
-  paddingTop: '50px',
+const Category = styled.div({
+  padding: '10px 10px 20px 20px',
   marginRight: '1em',
-  textDecoration: 'none',
   fontSize: '2em',
 });
 
