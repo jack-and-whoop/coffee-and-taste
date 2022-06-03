@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 
 const CategoryContainerStyle = styled.ul({
   display: 'flex',
+  position: 'fixed',
   margin: '40px 0',
   padding: '0',
   listStyle: 'none',
 });
 
 const Category = styled.li({
-  paddingTop: '100px',
+  paddingTop: '50px',
   marginRight: '1em',
   textDecoration: 'none',
   fontSize: '2em',

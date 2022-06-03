@@ -10,6 +10,7 @@ const MenuGroupContainerStyle = styled.ul({
   margin: '40px 0',
   padding: '0',
   listStyle: 'none',
+  paddingTop: '200px',
 });
 
 const MenuGroup = styled.li({
