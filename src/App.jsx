@@ -15,7 +15,6 @@ const Container = styled.div({
 
 const Header = styled.header({
   top: '0',
-  // margin: '0 auto',
   width: '80%',
   height: '100px',
   position: 'fixed',
