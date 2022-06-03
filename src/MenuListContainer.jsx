@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -50,7 +50,11 @@ export default function MenuListContainer() {
       {menuList.map((menu) => (
         <Menu key={menu.name}>
           <MenuImage url={menu.imagePath} />
-          <MenuName>{menu.name}</MenuName>
+          <MenuName>
+            <Link to={`/menu-groups/${menuGroupId}/menus/${menu.id}`}>
+              {menu.name}
+            </Link>
+          </MenuName>
         </Menu>
       ))}
     </MenuContainerStyle>
