@@ -1,4 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter, Link, Route, Routes,
+} from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
@@ -7,6 +9,7 @@ import CategoryContainer from './CategoryContainer';
 import MenuListContainer from './MenuListContainer';
 
 import logo from './images/logo.png';
+import MenuDetail from './MenuDetail';
 
 const Container = styled.div({
   margin: '0 auto',
@@ -51,7 +54,9 @@ export default function App() {
         <Header>
           <LogoAndTitle>
             <Logo />
-            <Title>Coffee-and-Taste</Title>
+            <Link to="/">
+              <Title>Coffee-and-Taste</Title>
+            </Link>
           </LogoAndTitle>
           <CategoryContainer />
         </Header>
@@ -59,6 +64,7 @@ export default function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/menu-groups/:menuGroupId" element={<MenuListContainer />} />
+            <Route path="/menu-groups/:menuGroupId/menus/:menuId" element={<MenuDetail />} />
           </Routes>
         </ContentContainer>
       </Container>
