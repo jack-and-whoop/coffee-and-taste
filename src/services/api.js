@@ -11,7 +11,7 @@ export async function fetchCategories() {
   return fetchData(`${BASE_URL}/categories`);
 }
 
-export async function fetchMenuGroups({ categoryId }) {
+export async function fetchMenuGroups(categoryId) {
   return fetchData(`${BASE_URL}/categories/${categoryId}/menu-groups`);
 }
 

@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-
 import { Link } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
+
 import styled from '@emotion/styled';
-import axios from 'axios';
 
 const MenuGroupContainerStyle = styled.div({
   margin: '40px 0',
@@ -41,16 +40,7 @@ const MenuGroupName = styled.div({
 });
 
 export default function MenuGroupContainer() {
-  const [menuGroups, setMenuGroups] = useState([]);
-
-  const BASE_URL = 'https://coffee-and-taste.kro.kr/api';
-
-  useEffect(() => {
-    axios.get(`${BASE_URL}/categories/1/menu-groups`)
-      .then((response) => {
-        setMenuGroups(response.data.menuGroups);
-      });
-  }, []);
+  const menuGroups = useSelector((state) => state.menuGroups);
 
   return (
     <MenuGroupContainerStyle>
