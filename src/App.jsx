@@ -4,12 +4,12 @@ import {
 
 import styled from '@emotion/styled';
 
-import Home from './Home';
 import CategoryContainer from './CategoryContainer';
+import MenuGroupContainer from './MenuGroupContainer';
 import MenuListContainer from './MenuListContainer';
+import MenuDetail from './MenuDetail';
 
 import logo from './images/logo.png';
-import MenuDetail from './MenuDetail';
 
 const Container = styled.div({
   margin: '0 auto',
@@ -62,7 +62,7 @@ export default function App() {
         </Header>
         <ContentContainer>
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<MenuGroupContainer />} />
             <Route path="/menu-groups/:menuGroupId" element={<MenuListContainer />} />
             <Route path="/menu-groups/:menuGroupId/menus/:menuId" element={<MenuDetail />} />
           </Routes>
