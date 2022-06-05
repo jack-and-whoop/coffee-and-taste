@@ -2,12 +2,17 @@ import {
   BrowserRouter, Link, Route, Routes,
 } from 'react-router-dom';
 
+import { useDispatch } from 'react-redux';
+
 import styled from '@emotion/styled';
 
+import { useEffect } from 'react';
 import CategoryContainer from './CategoryContainer';
 import MenuGroupContainer from './MenuGroupContainer';
 import MenuListContainer from './MenuListContainer';
 import MenuDetail from './MenuDetail';
+
+import { loadCategories } from './store';
 
 import logo from './images/logo.png';
 
@@ -48,6 +53,12 @@ const ContentContainer = styled.div({
 });
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadCategories());
+  }, []);
+
   return (
     <BrowserRouter basename="/coffee-and-taste">
       <Container>

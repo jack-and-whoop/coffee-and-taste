@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+
+import { useSelector } from 'react-redux';
 
 const CategoryContainerStyle = styled.div({
   display: 'flex',
@@ -15,14 +15,7 @@ const Category = styled.div({
 });
 
 export default function CategoryContainer() {
-  const [categories, setCategories] = useState([]);
-
-  const BASE_URL = 'https://coffee-and-taste.kro.kr/api';
-
-  useEffect(() => {
-    axios.get(`${BASE_URL}/categories`)
-      .then((response) => setCategories(response.data));
-  }, []);
+  const categories = useSelector((state) => state.categories);
 
   return (
     <CategoryContainerStyle>
