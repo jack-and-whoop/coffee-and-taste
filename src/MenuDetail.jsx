@@ -33,6 +33,7 @@ const MenuEnglishName = styled.h2({
 const MenuDescription = styled.p({
   fontSize: '1.2rem',
   paddingTop: '.5rem',
+  lineHeight: '1.6rem',
 });
 
 const MenuPrice = styled.h3({
@@ -65,7 +66,14 @@ export default function MenuDetail() {
       <MenuName>{menu.name}</MenuName>
       <MenuEnglishName>{menu.englishName}</MenuEnglishName>
       <hr />
-      <MenuDescription>{menu.description}</MenuDescription>
+      <MenuDescription>
+        {menu.description.split('\\n').map((line) => (
+          <span>
+            {line}
+            <br />
+          </span>
+        ))}
+      </MenuDescription>
       <MenuPrice>
         {menu.price}
         원
