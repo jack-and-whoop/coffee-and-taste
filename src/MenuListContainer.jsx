@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 import { Link, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadMenuList } from './store';
 
 const MenuContainerStyle = styled.div({
   margin: '40px 0',
@@ -33,21 +34,19 @@ const MenuName = styled.div({
 });
 
 export default function MenuListContainer() {
-  const [menuList, setMenuList] = useState([]);
   const { menuGroupId } = useParams();
 
-  const BASE_URL = 'https://coffee-and-taste.kro.kr/api';
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/menu-groups/${menuGroupId}/menus`)
-      .then((response) => {
-        setMenuList(response.data.menus);
-      });
+    dispatch(loadMenuList(menuGroupId));
   }, []);
+
+  const menus = useSelector((state) => state.menus);
 
   return (
     <MenuContainerStyle>
-      {menuList.map((menu) => (
+      {menus.map((menu) => (
         <Menu key={menu.name}>
           <MenuImage url={menu.imagePath} />
           <MenuName>

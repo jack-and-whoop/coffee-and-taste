@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-import { fetchCategories, fetchMenuGroups } from './services/api';
+import { fetchCategories, fetchMenuGroups, fetchMenus } from './services/api';
 
 const DEFAULT_CATEGORY_IS_BEVERAGE = 1;
 
@@ -13,7 +13,7 @@ const DEFAULT_CATEGORY_IS_BEVERAGE = 1;
 const initialState = {
   categories: [],
   menuGroups: [],
-  menuList: [],
+  menus: [],
   menu: null,
   selectedCategory: DEFAULT_CATEGORY_IS_BEVERAGE,
 };
@@ -21,6 +21,7 @@ const initialState = {
 // - 액션 생성 함수 정의
 const SET_CATEGORIES = 'SET_CATEGORIES';
 const SET_MENU_GROUPS = 'SET_MENU_GROUPS';
+const SET_MENUS = 'SET_MENUS';
 
 export function setCategories(categories) {
   return {
@@ -33,6 +34,13 @@ export function setMenuGroups(menuGroups) {
   return {
     type: SET_MENU_GROUPS,
     payload: { menuGroups },
+  };
+}
+
+export function setMenus(menus) {
+  return {
+    type: SET_MENUS,
+    payload: { menus },
   };
 }
 
@@ -52,6 +60,14 @@ export function loadMenuGroups(categoryId) {
   };
 }
 
+export function loadMenuList(menuGroupId) {
+  return async (dispatch) => {
+    const data = await fetchMenus(menuGroupId);
+
+    dispatch(setMenus(data.menus));
+  };
+}
+
 // - 리듀서
 function reducer(state = initialState, action = {}) {
   if (action.type === SET_CATEGORIES) {
@@ -65,6 +81,13 @@ function reducer(state = initialState, action = {}) {
     return {
       ...state,
       menuGroups: action.payload.menuGroups,
+    };
+  }
+
+  if (action.type === SET_MENUS) {
+    return {
+      ...state,
+      menus: action.payload.menus,
     };
   }
 

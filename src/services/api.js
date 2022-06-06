@@ -15,6 +15,6 @@ export async function fetchMenuGroups(categoryId) {
   return fetchData(`${BASE_URL}/categories/${categoryId}/menu-groups`);
 }
 
-export async function fetchMenuList({ menuGroupId }) {
+export async function fetchMenus(menuGroupId) {
   return fetchData(`${BASE_URL}/menu-groups/${menuGroupId}/menus`);
 }
