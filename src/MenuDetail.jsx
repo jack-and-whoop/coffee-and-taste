@@ -40,6 +40,14 @@ const MenuPrice = styled.h3({
   padding: '1rem 0',
 });
 
+const OrderButton = styled.button({
+  fontSize: '1.1rem',
+  borderRadius: '10%',
+  color: 'white',
+  backgroundColor: '#006633',
+  padding: '0.5rem',
+});
+
 export default function MenuDetail() {
   const { menuId } = useParams();
 
@@ -62,7 +70,7 @@ export default function MenuDetail() {
         {menu.price}
         원
       </MenuPrice>
-      <button type="button">주문하기</button>
+      <OrderButton>주문하기</OrderButton>
     </MenuDetailStyle>
   );
 }
