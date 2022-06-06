@@ -18,3 +18,7 @@ export async function fetchMenuGroups(categoryId) {
 export async function fetchMenus(menuGroupId) {
   return fetchData(`${BASE_URL}/menu-groups/${menuGroupId}/menus`);
 }
+
+export async function fetchMenu(menuId) {
+  return fetchData(`${BASE_URL}/menus/${menuId}`);
+}

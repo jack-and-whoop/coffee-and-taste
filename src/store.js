@@ -5,7 +5,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-import { fetchCategories, fetchMenuGroups, fetchMenus } from './services/api';
+import {
+  fetchCategories, fetchMenu, fetchMenuGroups, fetchMenus,
+} from './services/api';
 
 const DEFAULT_CATEGORY_IS_BEVERAGE = 1;
 
@@ -14,7 +16,7 @@ const initialState = {
   categories: [],
   menuGroups: [],
   menus: [],
-  menu: null,
+  menu: {},
   selectedCategory: DEFAULT_CATEGORY_IS_BEVERAGE,
 };
 
@@ -22,6 +24,7 @@ const initialState = {
 const SET_CATEGORIES = 'SET_CATEGORIES';
 const SET_MENU_GROUPS = 'SET_MENU_GROUPS';
 const SET_MENUS = 'SET_MENUS';
+const SET_MENU = 'SET_MENU';
 
 export function setCategories(categories) {
   return {
@@ -41,6 +44,13 @@ export function setMenus(menus) {
   return {
     type: SET_MENUS,
     payload: { menus },
+  };
+}
+
+export function setMenu(menu) {
+  return {
+    type: SET_MENU,
+    payload: { menu },
   };
 }
 
@@ -68,6 +78,14 @@ export function loadMenuList(menuGroupId) {
   };
 }
 
+export function loadMenu(menuId) {
+  return async (dispatch) => {
+    const data = await fetchMenu((menuId));
+
+    dispatch(setMenu(data));
+  };
+}
+
 // - 리듀서
 function reducer(state = initialState, action = {}) {
   if (action.type === SET_CATEGORIES) {
@@ -88,6 +106,13 @@ function reducer(state = initialState, action = {}) {
     return {
       ...state,
       menus: action.payload.menus,
+    };
+  }
+
+  if (action.type === SET_MENU) {
+    return {
+      ...state,
+      menu: action.payload.menu,
     };
   }
 

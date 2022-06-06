@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadMenu } from './store';
 
 const MenuImage = styled.div(
   {
@@ -18,16 +19,13 @@ const MenuImage = styled.div(
 export default function MenuDetail() {
   const { menuId } = useParams();
 
-  const [menu, setMenu] = useState({});
-
-  const BASE_URL = 'https://coffee-and-taste.kro.kr/api';
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/menus/${menuId}`)
-      .then((response) => {
-        setMenu(response.data);
-      });
+    dispatch(loadMenu(menuId));
   }, []);
+
+  const menu = useSelector((state) => state.menu);
 
   return (
     <>
