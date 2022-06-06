@@ -2,8 +2,8 @@ import { applyMiddleware, createStore } from 'redux';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import { logger } from 'redux-logger';
 
 import {
   fetchCategories, fetchMenu, fetchMenuGroups, fetchMenus,
@@ -135,6 +135,12 @@ function reducer(state = initialState, action = {}) {
 }
 
 // - 스토어
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk, logger)));
+const middlewares = [];
+
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(logger);
+}
+
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk, ...middlewares)));
 
 export default store;
