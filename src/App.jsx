@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import CategoryContainer from './CategoryContainer';
 import MenuGroupContainer from './MenuGroupContainer';
 import MenuListContainer from './MenuListContainer';
-import MenuDetail from './MenuDetail';
+import MenuDetailContainer from './MenuDetailContainer';
 
 import { loadCategories } from './store';
 
@@ -80,7 +80,7 @@ export default function App() {
           <Routes>
             <Route path="/categories/:categoryId/menu-groups" element={<MenuGroupContainer />} />
             <Route path="/menu-groups/:menuGroupId" element={<MenuListContainer />} />
-            <Route path="/menu-groups/:menuGroupId/menus/:menuId" element={<MenuDetail />} />
+            <Route path="/menu-groups/:menuGroupId/menus/:menuId" element={<MenuDetailContainer />} />
           </Routes>
         </ContentContainer>
       </Container>
