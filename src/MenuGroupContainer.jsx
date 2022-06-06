@@ -30,7 +30,6 @@ const MenuGroupImage = styled.div(
 
 const MenuGroupName = styled.div({
   margin: '10px 0',
-  fontSize: '16px',
   textAlign: 'center',
   '& a': {
     fontSize: '1.3rem',

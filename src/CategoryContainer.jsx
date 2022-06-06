@@ -10,8 +10,9 @@ const CategoryContainerStyle = styled.div({
 
 const Category = styled.div({
   padding: '10px 10px 20px 20px',
-  marginRight: '1em',
-  fontSize: '2em',
+  marginRight: '1rem',
+  fontSize: '1.8rem',
+  fontWeight: 'bold',
 });
 
 export default function CategoryContainer() {

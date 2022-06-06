@@ -12,15 +12,15 @@ const MenuContainerStyle = styled.div({
 });
 
 const Menu = styled.div({
+
 });
 
 const MenuImage = styled.div(
   {
-    margin: '50px auto 30px auto',
+    margin: '50px auto 20px auto',
     borderRadius: '50%',
     width: '150px',
     height: '150px',
-    border: '2px solid orange',
   },
   (props) => ({
     background: `url("https://coffee-and-taste.kro.kr/${props.url}") center/100% no-repeat`,
@@ -31,6 +31,11 @@ const MenuName = styled.div({
   margin: '10px 0',
   fontSize: '16px',
   textAlign: 'center',
+  '& a': {
+    fontSize: '1.1rem',
+    color: '#555555',
+    textDecoration: 'none',
+  },
 });
 
 export default function MenuListContainer() {

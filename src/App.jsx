@@ -37,7 +37,7 @@ const LogoAndTitle = styled.div({
     color: '#555555',
     textDecoration: 'none',
   },
-  paddingBottom: '1rem',
+  padding: '1rem 0',
 });
 
 const Logo = styled.div({
@@ -54,7 +54,6 @@ const Title = styled.h1({
 
 const ContentContainer = styled.div({
   marginTop: '180px',
-  backgroundColor: '#E4ECFE',
   height: 'auto',
 });
 
