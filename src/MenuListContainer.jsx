@@ -31,7 +31,9 @@ const MenuName = styled.div({
   margin: '10px 0',
   fontSize: '16px',
   textAlign: 'center',
+  wordBreak: 'keep-all',
   '& a': {
+
     fontSize: '1.1rem',
     color: '#555555',
     textDecoration: 'none',
