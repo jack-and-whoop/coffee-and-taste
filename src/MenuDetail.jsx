@@ -57,7 +57,7 @@ export default function MenuDetail({ menu }) {
         )) : null}
       </MenuDescription>
       <MenuPrice>
-        {menu.price}
+        {menu.price ? menu.price.toLocaleString('ko-KR') : null}
         원
       </MenuPrice>
       <OrderButton>주문하기</OrderButton>
