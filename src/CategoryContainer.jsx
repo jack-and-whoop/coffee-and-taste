@@ -14,6 +14,13 @@ const Category = styled.div({
   marginRight: '1rem',
   fontSize: '1.8rem',
   fontWeight: 'bold',
+  '& a': {
+    color: '#555555',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#000',
+    },
+  },
 });
 
 export default function CategoryContainer() {

@@ -37,6 +37,9 @@ const MenuGroupName = styled.div({
     fontSize: '1.3rem',
     color: '#555555',
     textDecoration: 'none',
+    '&:hover': {
+      color: '#000',
+    },
   },
 });
 

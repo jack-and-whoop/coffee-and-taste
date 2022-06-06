@@ -35,6 +35,9 @@ const MenuName = styled.div({
     fontSize: '1.1rem',
     color: '#555555',
     textDecoration: 'none',
+    '&:hover': {
+      color: '#000',
+    },
   },
 });
 
