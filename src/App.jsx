@@ -32,6 +32,12 @@ const Header = styled.header({
 const LogoAndTitle = styled.div({
   display: 'flex',
   alignItems: 'center',
+  '& a': {
+    fontSize: '2rem',
+    color: '#555555',
+    textDecoration: 'none',
+  },
+  paddingBottom: '1rem',
 });
 
 const Logo = styled.div({
