@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import styled from '@emotion/styled';
 import { useEffect } from 'react';
-import { loadMenuGroups } from './store';
+import { loadMenuGroups, selectCategory } from './store';
 
 const MenuGroupContainerStyle = styled.div({
   margin: '40px 0',
@@ -49,8 +49,9 @@ export default function MenuGroupContainer() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(selectCategory({ categoryId }));
     dispatch(loadMenuGroups(categoryId));
-  }, []);
+  }, [categoryId]);
 
   const menuGroups = useSelector((state) => state.menuGroups);
 

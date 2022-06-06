@@ -21,10 +21,18 @@ const initialState = {
 };
 
 // - 액션 생성 함수 정의
+const SELECT_CATEGORY = 'SELECT_CATEGORY';
 const SET_CATEGORIES = 'SET_CATEGORIES';
 const SET_MENU_GROUPS = 'SET_MENU_GROUPS';
 const SET_MENUS = 'SET_MENUS';
 const SET_MENU = 'SET_MENU';
+
+export function selectCategory(categoryId) {
+  return {
+    type: SELECT_CATEGORY,
+    payload: { categoryId },
+  };
+}
 
 export function setCategories(categories) {
   return {
@@ -88,6 +96,13 @@ export function loadMenu(menuId) {
 
 // - 리듀서
 function reducer(state = initialState, action = {}) {
+  if (action.type === SELECT_CATEGORY) {
+    return {
+      ...state,
+      selectedCategory: action.payload.categoryId,
+    };
+  }
+
   if (action.type === SET_CATEGORIES) {
     return {
       ...state,
