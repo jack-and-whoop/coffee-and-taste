@@ -41,24 +41,7 @@ const OrderButton = styled.button({
   padding: '0.5rem',
 });
 
-function convertDescription(description) {
-  if (description !== undefined) {
-    return description.split('\\n').map((line) => (
-      (
-        <span>
-          {line}
-          <br />
-        </span>
-      )
-    ));
-  }
-
-  return description;
-}
-
 export default function MenuDetail({ menu }) {
-  const menuDescription = convertDescription(menu.description);
-
   return (
     <>
       <MenuImage url={menu.imagePath} />
@@ -66,18 +49,13 @@ export default function MenuDetail({ menu }) {
       <MenuEnglishName>{menu.englishName}</MenuEnglishName>
       <hr />
       <MenuDescription>
-        {/* {menu.description} */}
-        {menuDescription}
+        {menu.description ? menu.description.split('\\n').map((line) => (
+          <span>
+            {line}
+            <br />
+          </span>
+        )) : null}
       </MenuDescription>
-      {/* // ! 왜 아래처럼 직접 split 하려고 하면 menu.description 을 undefined 라고 인식할까? */}
-      {/* <MenuDescription> */}
-      {/*  {menu.description.split('\\n').map((line) => ( */}
-      {/*    <span> */}
-      {/*      {line} */}
-      {/*      <br /> */}
-      {/*    </span> */}
-      {/*  ))} */}
-      {/* </MenuDescription> */}
       <MenuPrice>
         {menu.price}
         원
