@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styled from '@emotion/styled';
+import { useEffect } from 'react';
+import { loadMenuGroups } from './store';
 
 const MenuGroupContainerStyle = styled.div({
   margin: '40px 0',
@@ -39,6 +41,14 @@ const MenuGroupName = styled.div({
 });
 
 export default function MenuGroupContainer() {
+  const { categoryId } = useParams();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadMenuGroups(categoryId));
+  }, []);
+
   const menuGroups = useSelector((state) => state.menuGroups);
 
   return (

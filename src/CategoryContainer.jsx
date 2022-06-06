@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const CategoryContainerStyle = styled.div({
   display: 'flex',
@@ -22,7 +23,11 @@ export default function CategoryContainer() {
     <CategoryContainerStyle>
       {
         categories.map((category) => (
-          <Category key={category.id}>{category.name}</Category>
+          <Category key={category.id}>
+            <Link to={`/categories/${category.id}/menu-groups`}>
+              {category.name}
+            </Link>
+          </Category>
         ))
       }
     </CategoryContainerStyle>

@@ -2,7 +2,7 @@ import {
   BrowserRouter, Link, Route, Routes,
 } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import styled from '@emotion/styled';
 
@@ -12,7 +12,7 @@ import MenuGroupContainer from './MenuGroupContainer';
 import MenuListContainer from './MenuListContainer';
 import MenuDetail from './MenuDetail';
 
-import { loadCategories, loadMenuGroups } from './store';
+import { loadCategories } from './store';
 
 import logo from './images/logo.png';
 
@@ -60,11 +60,8 @@ const ContentContainer = styled.div({
 export default function App() {
   const dispatch = useDispatch();
 
-  const categoryId = useSelector((state) => state.selectedCategory);
-
   useEffect(() => {
     dispatch(loadCategories());
-    dispatch(loadMenuGroups(categoryId));
   }, []);
 
   return (
@@ -81,7 +78,7 @@ export default function App() {
         </Header>
         <ContentContainer>
           <Routes>
-            <Route exact path="/" element={<MenuGroupContainer />} />
+            <Route path="/categories/:categoryId/menu-groups" element={<MenuGroupContainer />} />
             <Route path="/menu-groups/:menuGroupId" element={<MenuListContainer />} />
             <Route path="/menu-groups/:menuGroupId/menus/:menuId" element={<MenuDetail />} />
           </Routes>
