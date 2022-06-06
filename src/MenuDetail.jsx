@@ -1,12 +1,4 @@
 import styled from '@emotion/styled';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadMenu } from './store';
-
-const MenuDetailStyle = styled.div({
-  paddingTop: '1rem',
-});
 
 const MenuImage = styled.div(
   {
@@ -49,36 +41,21 @@ const OrderButton = styled.button({
   padding: '0.5rem',
 });
 
-export default function MenuDetail() {
-  const { menuId } = useParams();
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadMenu(menuId));
-  }, []);
-
-  const menu = useSelector((state) => state.menu);
-
+export default function MenuDetail({ menu }) {
   return (
-    <MenuDetailStyle>
+    <>
       <MenuImage url={menu.imagePath} />
       <MenuName>{menu.name}</MenuName>
       <MenuEnglishName>{menu.englishName}</MenuEnglishName>
       <hr />
       <MenuDescription>
-        {menu.description.split('\\n').map((line) => (
-          <span>
-            {line}
-            <br />
-          </span>
-        ))}
+        {menu.description}
       </MenuDescription>
       <MenuPrice>
         {menu.price}
         원
       </MenuPrice>
       <OrderButton>주문하기</OrderButton>
-    </MenuDetailStyle>
+    </>
   );
 }
