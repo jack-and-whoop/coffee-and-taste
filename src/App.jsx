@@ -65,7 +65,7 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter basename="/coffee-and-taste">
+    <BrowserRouter basename="/">
       <Container>
         <Header>
           <LogoAndTitle>
