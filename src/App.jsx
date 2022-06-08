@@ -18,12 +18,12 @@ import logo from './images/logo.png';
 
 const Container = styled.div({
   margin: '0 auto',
-  width: '80%',
+  width: '55%',
 });
 
 const Header = styled.header({
   top: '0',
-  width: '80%',
+  width: '55%',
   height: '100px',
   position: 'fixed',
   background: 'beige 100%',
