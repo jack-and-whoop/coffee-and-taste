@@ -1,13 +1,38 @@
 import { render } from '@testing-library/react';
 
+import { MemoryRouter } from 'react-router-dom';
+
+import { useDispatch, useSelector } from 'react-redux';
+
 import MenuGroupContainer from './MenuGroupContainer';
 
-describe('MenuGroupContainer', () => {
-  it('renders menu group ', () => {
-    const { container } = render(
-      <MenuGroupContainer />,
-    );
+jest.mock('react-redux');
 
-    expect(container).toHaveTextContent('커피');
+describe('MenuGroupContainer', () => {
+  const dispatch = jest.fn();
+
+  beforeEach(() => {
+    useDispatch.mockImplementation(() => dispatch);
+
+    useSelector.mockImplementation((selector) => selector({
+      menuGroups: [
+        {
+          englishName: 'Cold Brew',
+          id: 1,
+          name: '콜드 브루',
+          representativeImagePath: '/images/cold_brew.jpg',
+        },
+      ],
+    }));
+  });
+
+  it('renders menu group ', () => {
+    const { container } = render((
+      <MemoryRouter>
+        <MenuGroupContainer />
+      </MemoryRouter>
+    ));
+
+    expect(container).toHaveTextContent('콜드 브루');
   });
 });
