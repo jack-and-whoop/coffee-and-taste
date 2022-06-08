@@ -9,7 +9,7 @@ import { loadMenuGroups, selectCategory } from './store';
 const MenuGroupContainerStyle = styled.div({
   margin: '40px 0',
   display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
+  gridTemplateColumns: 'repeat(5, 1fr)',
   gridGap: '1rem',
 });
 
@@ -34,6 +34,7 @@ const MenuGroupImage = styled.div(
     return ({
       // background: `url("https://coffee-and-taste.kro.kr/${props.url}") center/100% no-repeat`,
       border: '2px solid green',
+      backgroundColor: '#1E3932',
     });
   },
 );

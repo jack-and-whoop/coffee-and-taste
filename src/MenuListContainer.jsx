@@ -7,7 +7,7 @@ import { loadMenuList } from './store';
 const MenuContainerStyle = styled.div({
   margin: '40px 0',
   display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
+  gridTemplateColumns: 'repeat(5, 1fr)',
   gridGap: '1rem',
 });
 
