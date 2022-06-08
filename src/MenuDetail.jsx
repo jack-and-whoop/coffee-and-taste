@@ -49,7 +49,7 @@ export default function MenuDetail({ menu }) {
       <MenuEnglishName>{menu.englishName}</MenuEnglishName>
       <hr />
       <MenuDescription>
-        {menu.description ? menu.description.split('\\n').map((line) => (
+        {menu.description ? menu.description.split('\n').map((line) => (
           <span>
             {line}
             <br />
