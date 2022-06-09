@@ -4,14 +4,16 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const CategoryContainerStyle = styled.div({
-  display: 'flex',
-  paddingTop: '10px',
+  margin: '0 auto',
+  width: '40%',
+  display: 'grid',
   background: 'beige 100%',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  justifyItems: 'center',
 });
 
 const Category = styled.div({
-  padding: '10px 10px 20px 20px',
-  marginRight: '1rem',
+  padding: '20px 0',
   fontSize: '1.8rem',
   fontWeight: 'bold',
   '& a': {
@@ -19,6 +21,7 @@ const Category = styled.div({
     textDecoration: 'none',
     '&:hover': {
       color: '#000',
+      borderBottom: '2px solid green',
     },
   },
 });

@@ -18,42 +18,36 @@ import logo from './images/logo.png';
 
 const Container = styled.div({
   margin: '0 auto',
-  width: '55%',
+  width: '70%',
 });
 
 const Header = styled.header({
-  top: '0',
-  width: '55%',
-  height: '100px',
-  position: 'fixed',
+  width: '100%',
+  height: '200px',
   background: 'beige 100%',
 });
 
-const LogoAndTitle = styled.div({
-  display: 'flex',
-  alignItems: 'center',
+const LogoContainer = styled.div({
+  margin: '0 auto',
+  width: '75%',
   '& a': {
-    fontSize: '2rem',
+    fontSize: '1.8rem',
     color: '#555555',
     textDecoration: 'none',
   },
   padding: '1rem 0',
 });
 
-const Logo = styled.div({
-  margin: '0px 10px 0px 10px',
-  width: '50px',
-  height: '50px',
+const Logo = styled.h1({
+  margin: '0 auto',
+  width: '100px',
+  height: '100px',
   borderRadius: '50%',
   background: `url(${logo}) center/100% no-repeat`,
 });
 
-const Title = styled.h1({
-  margin: '0',
-});
-
 const ContentContainer = styled.div({
-  marginTop: '180px',
+  marginTop: '100px',
   height: 'auto',
 });
 
@@ -66,16 +60,15 @@ export default function App() {
 
   return (
     <BrowserRouter basename="/">
-      <Container>
-        <Header>
-          <LogoAndTitle>
+      <Header>
+        <LogoContainer>
+          <Link to="/">
             <Logo />
-            <Link to="/">
-              <Title>Coffee-and-Taste</Title>
-            </Link>
-          </LogoAndTitle>
-          <CategoryContainer />
-        </Header>
+          </Link>
+        </LogoContainer>
+        <CategoryContainer />
+      </Header>
+      <Container>
         <ContentContainer>
           <Routes>
             <Route path="/categories/:categoryId/menu-groups" element={<MenuGroupContainer />} />
