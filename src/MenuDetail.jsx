@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 const MenuImage = styled.div(
   {
-    margin: '50px auto 30px auto',
+    margin: '30px auto',
     borderRadius: '50%',
     width: '300px',
     height: '300px',
