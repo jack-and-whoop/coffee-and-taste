@@ -8,7 +8,7 @@ const MenuImage = styled.div(
     height: '300px',
   },
   (props) => ({
-    background: `url("https://coffee-and-taste.kro.kr/${props.url}") center/100% no-repeat`,
+    background: `url("https://coffee-and-taste.kro.kr${props.url}") center/100% no-repeat`,
   }),
 );
 

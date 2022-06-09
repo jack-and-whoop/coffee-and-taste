@@ -27,7 +27,7 @@ const MenuGroupImage = styled.div(
   (props) => {
     if (props.url) {
       return ({
-        background: `url("https://coffee-and-taste.kro.kr/${props.url}") center/100% no-repeat`,
+        background: `url("https://coffee-and-taste.kro.kr${props.url}") center/100% no-repeat`,
       });
     }
 
