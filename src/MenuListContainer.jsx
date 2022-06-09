@@ -19,8 +19,8 @@ const MenuImage = styled.div(
   {
     margin: '50px auto 20px auto',
     borderRadius: '50%',
-    width: '150px',
-    height: '150px',
+    width: '200px',
+    height: '200px',
   },
   (props) => ({
     background: `url("https://coffee-and-taste.kro.kr/${props.url}") center/100% no-repeat`,

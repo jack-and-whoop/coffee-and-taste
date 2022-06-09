@@ -47,7 +47,7 @@ const Logo = styled.h1({
 });
 
 const ContentContainer = styled.div({
-  marginTop: '100px',
+  marginTop: '50px',
   height: 'auto',
 });
 
