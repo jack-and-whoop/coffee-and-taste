@@ -33,7 +33,6 @@ const MenuName = styled.div({
   textAlign: 'center',
   wordBreak: 'keep-all',
   '& a': {
-
     fontSize: '1.1rem',
     color: '#555555',
     textDecoration: 'none',
@@ -41,6 +40,12 @@ const MenuName = styled.div({
       color: '#000',
     },
   },
+});
+
+const NoMenu = styled.h1({
+  margin: '150px 0',
+  textAlign: 'center',
+  fontSize: '2rem',
 });
 
 export default function MenuListContainer() {
@@ -53,6 +58,14 @@ export default function MenuListContainer() {
   }, []);
 
   const menus = useSelector((state) => state.menus);
+
+  if (menus.length === 0) {
+    return (
+      <Menu>
+        <NoMenu>메뉴를 준비중입니다!</NoMenu>
+      </Menu>
+    );
+  }
 
   return (
     <MenuContainerStyle>
