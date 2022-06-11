@@ -21,9 +21,9 @@ describe('App', () => {
     }));
   });
 
-  it('renders title of page ', () => {
-    const { queryByText } = render(<App />);
+  it('로고 이미지를 보여준다. ', () => {
+    const { queryByAltText } = render(<App />);
 
-    expect(queryByText('Coffee-and-Taste')).not.toBeNull();
+    expect(queryByAltText('coffee-and-taste logo')).not.toBeNull();
   });
 });
