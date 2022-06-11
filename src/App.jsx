@@ -23,7 +23,6 @@ const Container = styled.div({
 
 const Header = styled.header({
   width: '100%',
-  height: '200px',
   background: 'beige 100%',
 });
 
@@ -36,14 +35,14 @@ const LogoContainer = styled.div({
     textDecoration: 'none',
   },
   padding: '1rem 0',
+  textAlign: 'center',
 });
 
-const Logo = styled.h1({
+const Logo = styled.img({
   margin: '0 auto',
   width: '100px',
   height: '100px',
   borderRadius: '50%',
-  background: `url(${logo}) center/100% no-repeat`,
 });
 
 const ContentContainer = styled.div({
@@ -63,7 +62,7 @@ export default function App() {
       <Header>
         <LogoContainer>
           <Link to="/">
-            <Logo />
+            <Logo src={logo} alt="coffee-and-taste logo" />
           </Link>
         </LogoContainer>
         <CategoryContainer />
