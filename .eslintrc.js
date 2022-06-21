@@ -23,5 +23,6 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
   },
 };
