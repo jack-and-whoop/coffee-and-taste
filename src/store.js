@@ -18,6 +18,10 @@ const initialState = {
   menus: [],
   menu: {},
   selectedCategory: DEFAULT_CATEGORY_IS_BEVERAGE,
+  loginFields: {
+    email: '',
+    password: '',
+  },
 };
 
 // - 액션 생성 함수 정의
@@ -26,6 +30,14 @@ const SET_CATEGORIES = 'SET_CATEGORIES';
 const SET_MENU_GROUPS = 'SET_MENU_GROUPS';
 const SET_MENUS = 'SET_MENUS';
 const SET_MENU = 'SET_MENU';
+const UPDATE_LOGIN_FIELDS = 'UPDATE_LOGIN_FIELDS';
+
+export function updateLoginFields({ name, value }) {
+  return {
+    type: UPDATE_LOGIN_FIELDS,
+    payload: { name, value },
+  };
+}
 
 export function selectCategory(categoryId) {
   return {
@@ -96,6 +108,17 @@ export function loadMenu(menuId) {
 
 // - 리듀서
 function reducer(state = initialState, action = {}) {
+  if (action.type === UPDATE_LOGIN_FIELDS) {
+    const { name, value } = action.payload;
+    return {
+      ...state,
+      loginFields: {
+        ...state.loginFields,
+        [name]: value,
+      },
+    };
+  }
+
   if (action.type === SELECT_CATEGORY) {
     return {
       ...state,
