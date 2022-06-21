@@ -22,3 +22,16 @@ export async function fetchMenus(menuGroupId) {
 export async function fetchMenu(menuId) {
   return fetchData(`${BASE_URL}/menus/${menuId}`);
 }
+
+export async function postLogin({ email, password }) {
+  const url = `${BASE_URL}/auth/login`;
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }),
+  });
+  const { accessToken } = await response.json();
+  return accessToken;
+}

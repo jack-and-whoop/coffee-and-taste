@@ -3,10 +3,11 @@ import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import thunk from 'redux-thunk';
+
 import { logger } from 'redux-logger';
 
 import {
-  fetchCategories, fetchMenu, fetchMenuGroups, fetchMenus,
+  fetchCategories, fetchMenu, fetchMenuGroups, fetchMenus, postLogin,
 } from './services/api';
 
 const DEFAULT_CATEGORY_IS_BEVERAGE = 1;
@@ -22,6 +23,7 @@ const initialState = {
     email: '',
     password: '',
   },
+  accessToken: '',
 };
 
 // - 액션 생성 함수 정의
@@ -31,11 +33,33 @@ const SET_MENU_GROUPS = 'SET_MENU_GROUPS';
 const SET_MENUS = 'SET_MENUS';
 const SET_MENU = 'SET_MENU';
 const UPDATE_LOGIN_FIELDS = 'UPDATE_LOGIN_FIELDS';
+const SET_ACCESS_TOKEN = 'SET_ACCESS_TOKEN';
 
 export function updateLoginFields({ name, value }) {
   return {
     type: UPDATE_LOGIN_FIELDS,
     payload: { name, value },
+  };
+}
+
+export function setAccessToken(accessToken) {
+  return {
+    type: SET_ACCESS_TOKEN,
+    payload: { accessToken },
+  };
+}
+
+export function requestLogin() {
+  return async (dispatch, getState) => {
+    const { loginFields: { email, password } } = getState();
+
+    try {
+      const accessToken = await postLogin({ email, password });
+
+      dispatch(setAccessToken(accessToken));
+    } catch (e) {
+      // TODO : 에러 처리
+    }
   };
 }
 
@@ -116,6 +140,13 @@ function reducer(state = initialState, action = {}) {
         ...state.loginFields,
         [name]: value,
       },
+    };
+  }
+
+  if (action.type === SET_ACCESS_TOKEN) {
+    return {
+      ...state,
+      accessToken: action.payload.accessToken,
     };
   }
 

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { updateLoginFields } from './store';
+import { requestLogin, updateLoginFields } from './store';
 
 export default function LoginPage({ email, password }) {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export default function LoginPage({ email, password }) {
   }
 
   function handleClick() {
-    // TODO : 로그인 처리 api 를 호출한다.
+    dispatch(requestLogin());
   }
 
   return (
